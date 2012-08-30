@@ -23,8 +23,6 @@ public class Sounds extends Thread {
 	}
 
 	public void run() {
-		System.out.println(Sounds.class.getResource(fileName)
-				.toString());
 		File f = new File(Sounds.class.getResource(fileName).getFile());
 			
 		if (!f.exists()) {
