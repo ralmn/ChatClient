@@ -56,21 +56,21 @@ public class Reader extends Thread {
 					Main.disconnecting();
 					Main.chat.menuItem2.setEnabled(false);
 					Main.write("<font color=red> Vous avez été kicker </font>");
-					Main.chat.setTitle("Chat by RALMN - non connecter (kicker)");
+					Main.chat.setTitle("Chat by RALMN - non connecter");
 					continue;
 				}else if(message.equalsIgnoreCase("[ban]")){
 					Main.disconnecting();
 					Main.chat.menuItem1.setEnabled(true);
 					Main.chat.menuItem2.setEnabled(false);
 					Main.write("<font color=red> Vous avez été banis </font>");
-					Main.chat.setTitle("Chat by RALMN - non connecter (Bannis)");
+					Main.chat.setTitle("Chat by RALMN - non connecter");
 					continue;
 				}else if(message.equalsIgnoreCase("[END]")){
 					Main.disconnecting();
 					Main.chat.menuItem1.setEnabled(true);
 					Main.chat.menuItem2.setEnabled(false);
 					Main.write("<font color=red> Le serveur a etait arreter ! </font>");
-					Main.chat.setTitle("Chat by RALMN - non connecter (Bannis)");
+					Main.chat.setTitle("Chat by RALMN - non connecter");
 					continue;
 				}
 				
