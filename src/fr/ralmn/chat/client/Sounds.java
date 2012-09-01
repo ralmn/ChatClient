@@ -2,7 +2,12 @@ package fr.ralmn.chat.client;
 
 import java.awt.BorderLayout;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -23,17 +28,24 @@ public class Sounds extends Thread {
 	}
 
 	public void run() {
-		File f = new File(Sounds.class.getResource(fileName).getFile());
-			
+		URL url = Sounds.class.getResource(fileName); 
+		
+		/*String str_url = stream.toString();
+		File f = new File(str_url);
+		System.out.println(str_url);
 		if (!f.exists()) {
 			System.err.println("Ce sons n'existe pas ! ");
-			return;	
-		}
+			return;
+		}*/
 
+			
 		AudioInputStream Ainp = null;
 		try {
-			Ainp = AudioSystem.getAudioInputStream(f);
+			Ainp = AudioSystem.getAudioInputStream(url);
 		} catch (Exception e) {
+			System.out.println("Erreur");
+			e.printStackTrace();
+			return;
 		}
 
 		AudioFormat format = Ainp.getFormat();
@@ -46,8 +58,6 @@ public class Sounds extends Thread {
 		} catch (Exception e) {
 		}
 
-		
-		
 		auline.start();
 		int nBytesRead = 0;
 		byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
